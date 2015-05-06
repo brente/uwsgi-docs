@@ -9,7 +9,7 @@ Transformations can be chained (the output of a transformation will be the input
 response headers.
 
 The most common example of transformation is gzip encoding. The output of your application is passed to a function compressing it with gzip
-and setting the Content-Encoding header. This feature rely on 2 external packages: libpcre3-dev, libz-dev on Ubuntu.
+and setting the Content-Encoding header. This feature relies on 2 external packages: libpcre3-dev, libz-dev on Ubuntu.
 
 .. code-block:: ini
 
@@ -67,10 +67,10 @@ Streaming vs. buffering
 
 Each transformation announces itself as a "streaming" one or a "buffering" one.
 
-Streaming ones are transformations that can be applied to response chunks (parts). An example of a streaming transformation
-is gzip (you do not need the whole body to begin compressing it). Buffering transformations are those requiring the full body before applying something to it. XSLT is an example of buffering transformation. Another example of buffering transformations are those used for storing response in some kind of cache.
+Streaming transformations can be applied to response chunks (parts). An example of a streaming transformation
+is gzip (you do not need the whole body to begin compressing it). Buffering transformations need the full body before applying something to it. XSLT is an example of a buffering transformation. Another example of buffering transformations are those used for storing the response in some kind of cache.
 
-If your whole pipeline is composed by only "streaming" transformations, your client will receive the output chunk by chunk. On the other hand
+If your whole pipeline is composed of only "streaming" transformations, your client will receive the output chunk by chunk. On the other hand
 a single buffering transformation will make the whole pipeline buffered, so your client will get the output only at the end.
 
 An often using streaming functionality is gzip + chunked:
@@ -83,7 +83,7 @@ An often using streaming functionality is gzip + chunked:
    route-run = chunked:
    ...
 
-The whole transformation pipeline is composed by streaming plugins, so you will get each HTTP chunk in realtime.
+The whole transformation pipeline is composed of streaming plugins, so you will get each HTTP chunk in realtime.
 
 Flushing magic
 **************
